@@ -3,6 +3,11 @@
 <h3>Hocbigg - Special Education</h3>
 <p>
   Path to a free self-taught education in Special Education!
+<p>
+  <a href="https://github.com/hocbigg/special-education">
+    <img alt="Hocbigg" src="/images/view_on_github.svg"
+  ></a>
+</p>
 </p>
 </div>
 
@@ -20,7 +25,7 @@ The Special Education curriculum is a **complete education in Special Education*
 Note: When there are courses or books that don't fit into the curriculum but are otherwise of high quality,
 they belong in [extras/courses](extras/courses.md), [extras/readings](extras/readings.md) or [extras/other_curricula](extras/other_curricula.md).
 
-**[How to contribute](CONTRIBUTING.md)**
+**[How to contribute](/CONTRIBUTING.html)**
 
 # Communities
 
@@ -34,7 +39,7 @@ they belong in [extras/courses](extras/courses.md), [extras/readings](extras/rea
   - [r/specialeducation](https://www.reddit.com/r/specialeducation/)
 - Other:
   - [Education Mastodon Instance](https://mastodon.education/)
-- You can also interact through [GitHub issues](https://github.com/hocbigg/special-education/issues). If there is a problem with a course, or a change needs to be made to the curriculum, this is the place to start the conversation. Read more [here](CONTRIBUTING.md).
+- You can also interact through [GitHub issues](https://github.com/hocbigg/special-education/issues). If there is a problem with a course, or a change needs to be made to the curriculum, this is the place to start the conversation. Read more [here](/CONTRIBUTING.html).
 
 # Curriculum
 

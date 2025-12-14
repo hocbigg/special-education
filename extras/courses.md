@@ -16,7 +16,7 @@ or that there was an alternative that fit better into the curriculum.
 
 *Why these are “extras”:* some are introductory or overlapping with core topics; others are more practice-oriented or have variable academic depth — good for broadening perspective, for initial exposure, or for continuing professional development.
 
-# Online Learning - Great Courses
+## Online Learning - Great Courses
 
 
 Courses | Duration | Effort
