@@ -1,26 +1,25 @@
 # Great Courses
 
-This is a list of high-quality courses that, for one reason or another, didn't make it into the curriculum.
-The most common reasons are that the course isn't available often enough,
-or that there was an alternative that fit better into the curriculum.
+This directory features standout open courses, comprehensive university lectures, and audiovisual deep-dives that extend beyond core introductory coursework to build deep intuition in behavioral sciences, neurodevelopmental differences, accessibility standards, and inclusive education policy.
 
-## Disability / Inclusive Education — Broader & Contextual
+## Neurodevelopmental & Learning Profiles
 
-| Courses | Duration | Effort |
-| --- | --- | --- |
-| [Disability Inclusion in Education: Building Systems of Support](https://www.coursera.org/learn/disability-inclusion-education) | ~1 week (5 modules) | ~10 hrs/week ([Coursera](https://www.coursera.org/learn/disability-inclusion-education)) |
-| [Disability Awareness and Support](https://www.coursera.org/learn/disability-awareness) | ~7 hours total | self-paced (~a few hrs/week) ([Coursera](https://www.coursera.org/learn/disability-awareness)) |
-| [Foundations of Special Needs Teaching](https://alison.com/course/foundations-of-special-needs-teaching) | n/a (self-paced) | self-paced ([Alison](https://alison.com/course/foundations-of-special-needs-teaching)) |
-| [Special Needs Education (Intermediate)](https://alison.com/course/special-needs-education) | n/a (self-paced) | self-paced ([Alison](https://alison.com/course/special-needs-education)) |
-| [Special Education Needs and Disabilities (SEND) Inclusion in Schools](https://alison.com/course/special-education-needs-and-disabilities-send-inclusion-in-schools) | n/a (self-paced) | self-paced ([Alison](https://alison.com/course/special-education-needs-and-disabilities-send-inclusion-in-schools)) |
+- [Overcoming Dyslexia (Coursera / Yale University / Dr. Sally Shaywitz)](https://www.coursera.org/learn/dyslexia)
+- [ADHD: Everyday Strategies for Elementary Students (Coursera / State University of New York at Buffalo / Dr. Greg Fabiano)](https://www.coursera.org/learn/adhd-treatment)
+- [Autism Spectrum Disorder (Coursera / University of California, Santa Cruz)](https://www.coursera.org/learn/autism-spectrum-disorder)
+- [Understanding ADHD (OpenLearn / The Open University)](https://www.open.edu/openlearn/health-sports-psychology/health/understanding-adhd/content-section-0)
+- [Understanding Autism (OpenLearn / The Open University)](https://www.open.edu/openlearn/health-sports-psychology/mental-health/understanding-autism/content-section-overview)
 
-*Why these are “extras”:* some are introductory or overlapping with core topics; others are more practice-oriented or have variable academic depth — good for broadening perspective, for initial exposure, or for continuing professional development.
+## Applied Behavior Analysis & Intervention Science
 
-## Online Learning - Great Courses
+- [Everyday Parenting: The ABCs of Child Rearing (Coursera / Yale University / Dr. Alan E. Kazdin)](https://www.coursera.org/learn/everyday-parenting)
+- [Applied Behavior Analysis Introduction (Coursera / MedCerts)](https://www.coursera.org/learn/applied-behavior-analysis)
 
+## Digital Accessibility & Universal Design
 
-Courses | Duration | Effort
-:-- | :--: | :--:
-[Learning How to Learn](https://www.coursera.org/learn/learning-how-to-learn) | 4 weeks | 2 hours/week
-[Mindshift](https://www.coursera.org/learn/mindshift) | 4 weeks | 2 hours/week
-[Powersearching with Google](https://www.edx.org/learn/google-power-searching/google-power-searching-with-google) | 3 weeks | 4-6 hours/week
+- [W3Cx: Introduction to Web Accessibility (edX / World Wide Web Consortium)](https://www.edx.org/school/w3cx)
+- [Disability Awareness and Support (Coursera / University of Pittsburgh / Dr. Mary Goldberg)](https://www.coursera.org/learn/disability-awareness)
+
+## Inclusive Systems, Policy & Advocacy
+
+- [Inclusive Education: Essential Knowledge for Success (FutureLearn / Queensland University of Technology / Prof. Linda Graham)](https://www.futurelearn.com/courses/inclusive-education)
