@@ -1,43 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
 
-<title>Hocbigg - Special Education</title>
-<link rel="stylesheet" href="/special-education/style.css">
-<meta name="description" content="Path to a free self-taught education in Special Education!">
+  <title>Hocbigg - Special Education</title>
+  <meta name="description" content="Path to a free self-taught education in Special Education!">
+  <meta name="author" content="hocbigg">
 
-<link rel="canonical" href="https://hocbigg.github.io/special-education/">
+  <link rel="canonical" href="https://hocbigg.github.io/special-education/">
+  <meta property="og:title" content="Hocbigg - Special Education">
+  <meta property="og:description" content="Path to a free self-taught education in Special Education!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hocbigg.github.io/special-education/">
+  <link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
 
-<meta property="og:title" content="Hocbigg - Special Education">
-<meta property="og:description" content="Path to a free self-taught education in Special Education!">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://hocbigg.github.io/special-education/">
-<meta name="author" content="hocbigg">
-<link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
+  <style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #595959;
+  --border: #e0e0e0;
+  --th-bg: #f6f8fa;
+  --code-bg: #f4f4f4;
+  --link: #0969da;
+  --focus-ring: #0969da;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --th-bg: #161b22;
+    --code-bg: #161b22;
+    --link: #58a6ff;
+    --focus-ring: #58a6ff;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5rem auto;
+  max-width: min(60rem, 92vw);
+  padding: 0 0.75rem 3.5rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  font: 1.15rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  word-wrap: break-word;
+}
+
+.site-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem 1.25rem;
+  font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a:hover, 
+nav a:focus-visible {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+nav .nav-brand {
+  color: var(--fg);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  color: var(--fg);
+}
+h1 { font-size: 1.85rem; margin-top: 0.5em; }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.2rem; }
+
+p, ul, ol, blockquote, table {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.page-header img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  tab-size: 2;
+}
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+th {
+  background-color: var(--th-bg);
+  font-weight: 600;
+}
+
+blockquote {
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media print {
+  body {
+    max-width: none;
+    color: #000;
+    background: #fff;
+  }
+  .skip-link, nav {
+    display: none;
+  }
+}
+  </style>
 </head>
-
 <body>
 
-<nav>
-<a href="/">Hocbigg</a>
-<a href="/special-education/">Special-Education</a>
-<a href="/special-education/projects.html">Projects</a>
-<a href="/special-education/extras/courses.html">Extra Courses</a>
-<a href="/special-education/extras/readings.html">Extra Reading</a>
-<a href="https://github.com/hocbigg/special-education/" target="_blank">View on Github</a>
-</nav>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<main>
-<article>
+  <header class="site-header">
+    <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="https://hocbigg.github.io/" class="nav-brand">Hocbigg</a></li>
+      <li><a href="/special-education/">Special Education</a></li>
+      <li><a href="/special-education/projects.html">Projects</a></li>
+      <li><a href="/special-education/extras/readings.html">Extra Readings</a></li>
+      <li><a href="/special-education/extras/courses.html">Extra Courses</a></li>
+      <li><a href="/special-education/resources.html">Resources</a></li>
+      <li><a href="/special-education/extras/other_curricula.html">Other Curricula</a></li>
+      <li><a href="https://github.com/hocbigg/" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+    </ul>
+    </nav>
+  </header>
 
+  <main id="main-content">
+    <article>
 <header class="page-header">
-  <img src="/images/logo.png" alt="">
+  <img src="/images/logo.png" alt="Hocbigg logo">
   <h1>Hocbigg - Special Education</h1>
 </header>
-
 <h1 id="contents">Contents</h1>
 <ul>
 <li><a href="#summary">Summary</a></li>
@@ -47,98 +272,63 @@
 </ul>
 <h1 id="summary">Summary</h1>
 <p>The Special Education curriculum is a <strong>complete education in Special Education</strong> using online materials.</p>
-<h2 id="organization">Organization</h2>
-<p>This repository is organized into 2 main components:</p>
-<ul>
-<li><strong>Core Curriculum</strong> (this page): the foundational knowledge of the field;</li>
-<li><strong><a href="projects.html">Projects</a></strong>: support learning through practical application throughout the curriculum.</li>
-</ul>
-<p><strong>Process:</strong> Learners may work through the curriculum independently or collaboratively, and either sequentially or selectively.</p>
-<ul>
-<li>For simplicity, courses in the Core Curriculum are ordered according to their prerequisites.</li>
-<li>The Core Curriculum provides a shared foundation and is intended to be completed in full.</li>
-</ul>
-<p>Practical work is integrated through the <a href="projects.html">Projects section</a> and may be undertaken alongside coursework.</p>
-<p>Note: When there are courses or books that don't fit into the curriculum but are otherwise of high quality,
-they belong in <a href="extras/courses.html">extras/courses</a>, <a href="extras/readings.html">extras/readings</a>.</p>
 <p><strong><a href="/CONTRIBUTING.html">How to contribute</a></strong></p>
 <h1 id="communities">Communities</h1>
 <ul>
 <li>Forums:<ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://exceptionalchildren.org/engage/cecommunity-all-member-forum">CECommunity All-Member Forum (Council for Exceptional Children)</a></li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://www.naset.com/professional-resources/facebook-special-education-teacher-group/teacher-to-teacher-forum-national-association-of-special-education-teachers/">NASET Teacher-to-Teacher Forum</a></li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://teachers.net/mentors/special_education/">Special Education Teachers Chatboard (Teachers.Net)</a></li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://proteacher.net/discussions/forums/special-education.39/">ProTeacher Special Education Forum</a></li>
+<li><a href="https://exceptionalchildren.org/engage/cecommunity-all-member-forum" target="_blank" rel="noopener noreferrer">CECommunity All-Member Forum (Council for Exceptional Children)</a></li>
+<li><a href="https://www.naset.com/professional-resources/facebook-special-education-teacher-group/teacher-to-teacher-forum-national-association-of-special-education-teachers/" target="_blank" rel="noopener noreferrer">NASET Teacher-to-Teacher Forum</a></li>
+<li><a href="https://teachers.net/mentors/special_education/" target="_blank" rel="noopener noreferrer">Special Education Teachers Chatboard (Teachers.Net)</a></li>
+<li><a href="https://proteacher.net/discussions/forums/special-education.39/" target="_blank" rel="noopener noreferrer">ProTeacher Special Education Forum</a></li>
 </ul>
 </li>
 <li>Subreddits:<ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://www.reddit.com/r/specialed/">r/specialed</a></li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://www.reddit.com/r/specialeducation/">r/specialeducation</a></li>
+<li><a href="https://www.reddit.com/r/specialed/" target="_blank" rel="noopener noreferrer">r/specialed</a></li>
+<li><a href="https://www.reddit.com/r/specialeducation/" target="_blank" rel="noopener noreferrer">r/specialeducation</a></li>
 </ul>
 </li>
 <li>Other:<ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://mastodon.education/">Education Mastodon Instance</a></li>
+<li><a href="https://mastodon.education/" target="_blank" rel="noopener noreferrer">Education Mastodon Instance</a></li>
 </ul>
 </li>
-<li>You can also interact through <a target="_blank" rel="noopener noreferrer" href="https://github.com/hocbigg/special-education/issues">GitHub issues</a>. If there is a problem with a course, or a change needs to be made to the curriculum, this is the place to start the conversation. Read more <a href="/CONTRIBUTING.html">here</a>.</li>
-<li>
-<p>Join our Discord server (for discussions around this and other curricula): </p>
-<p><a target="_blank" rel="noopener noreferrer" href="https://discord.gg/KHqAv4Nvm5"><img alt="discord link" src="/assets/discord.png" /></a></p>
-</li>
+<li>You can also interact through <a href="https://github.com/hocbigg/special-education/issues" target="_blank" rel="noopener noreferrer">GitHub issues</a>. If there is a problem with a course, or a change needs to be made to the curriculum, this is the place to start the conversation. Read more <a href="/CONTRIBUTING.html">here</a>.</li>
 </ul>
 <h1 id="curriculum">Curriculum</h1>
-<table>
-<thead>
-<tr>
-<th>Subject</th>
-<th>Why study?</th>
-<th>Book</th>
-<th>Videos</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Foundations of Special Education</td>
-<td>Understand the historical, legal, and philosophical basis for special education to ensure ethical and compliant practices.</td>
-<td><em>Exceptional Learners: An Introduction to Special Education</em> by Daniel P. Hallahan et al.</td>
-<td><a target="_blank" rel="noopener noreferrer" href="https://www.coursera.org/learn/disability-inclusion-education">Disability Inclusion in Education: Building Systems of Support</a></td>
-</tr>
-<tr>
-<td>Characteristics of Learners with Disabilities</td>
-<td>Identify and comprehend various disabilities to provide appropriate support and interventions.</td>
-<td><em>Exceptional Learners: An Introduction to Special Education</em> by Daniel P. Hallahan et al.</td>
-<td><a target="_blank" rel="noopener noreferrer" href="https://www.open.edu/openlearn/health-sports-psychology/exploring-learning-disabilities-supporting-belonging">Exploring Learning Disabilities: Supporting Belonging</a></td>
-</tr>
-<tr>
-<td>Assessment and Individualized Education Programs (IEPs)</td>
-<td>Learn to evaluate student needs and create effective IEPs for personalized learning plans.</td>
-<td><em>Assessment in Special Education: A Practical Approach</em> by Roger Pierangelo</td>
-<td><a target="_blank" rel="noopener noreferrer" href="https://www.coursera.org/learn/social-services-education">Providing Social, Emotional, Behavioral, and Special Education Services in School</a></td>
-</tr>
-<tr>
-<td>Instructional Strategies in Special Education</td>
-<td>Acquire adapted teaching methods to promote academic success for students with diverse needs.</td>
-<td><em>Strategies for Teaching Students with Learning and Behavior Problems</em> by Sharon R. Vaughn and Candace S. Bos</td>
-<td><a target="_blank" rel="noopener noreferrer" href="https://www.coursera.org/learn/disability-inclusion-education">Disability Inclusion in Education: Building Systems of Support</a></td>
-</tr>
-<tr>
-<td>Behavior Management in Special Education</td>
-<td>Develop techniques to handle challenging behaviors and foster positive classroom environments.</td>
-<td><em>Strategies for Teaching Students with Learning and Behavior Problems</em> by Sharon R. Vaughn and Candace S. Bos</td>
-<td><a target="_blank" rel="noopener noreferrer" href="https://www.coursera.org/learn/social-services-education">Providing Social, Emotional, Behavioral, and Special Education Services in School</a></td>
-</tr>
-<tr>
-<td>Inclusive Education and Collaboration</td>
-<td>Promote integration in general education settings and effective teamwork with families and professionals.</td>
-<td><em>Teaching Students with Special Needs in Inclusive Settings</em> by Tom E. C. Smith</td>
-<td><a target="_blank" rel="noopener noreferrer" href="https://www.coursera.org/learn/disability-inclusion-education">Disability Inclusion in Education: Building Systems of Support</a></td>
-</tr>
-</tbody>
-</table>
-<h1 id="code-of-conduct">Code of conduct</h1>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/hocbigg/code-of-conduct">Hocbigg's code of conduct</a>.</p>
-</article>
-</main>
+<h2 id="foundations-of-special-education">Foundations of Special Education</h2>
+<p>Examines the historical, legal, and ethical frameworks governing special education, including the Individuals with Disabilities Education Act (IDEA), Section 504, and the principles of Free Appropriate Public Education (FAPE) in the Least Restrictive Environment (LRE).</p>
+<p><a href="https://books.google.com/books?isbn=9780137520350" target="_blank" rel="noopener noreferrer">Exceptional Learners: An Introduction to Special Education (Pearson / Daniel P. Hallahan, James M. Kauffman, and Paige C. Pullen)</a> - The canonical introductory textbook covering the legal history, core terminology, and philosophical foundations of the field.</p>
+<p><a href="https://pressbooks.usnh.edu/edc703-803/" target="_blank" rel="noopener noreferrer">The Roles and Responsibilities of the Special Educator (Pressbooks / Paula Lombardi)</a> - An open-access textbook outlining federal statutory requirements, procedural safeguards, and the professional responsibilities of special educators.</p>
+<p><a href="https://www.coursera.org/learn/disability-inclusion-education" target="_blank" rel="noopener noreferrer">Disability Inclusion in Education: Building Systems of Support (Coursera / University of Cape Town)</a> - An audit-mode course focused on building inclusive institutional support systems and understanding disability rights.</p>
+<h2 id="characteristics-and-etiologies-of-exceptional-learners">Characteristics and Etiologies of Exceptional Learners</h2>
+<p>Surveys the developmental, behavioral, sensory, and cognitive characteristics of high- and low-incidence disabilities, framing neurodiversity alongside diagnostic criteria.</p>
+<p><a href="https://books.google.com/books?isbn=9781305500976" target="_blank" rel="noopener noreferrer">Human Exceptionality: School, Community, and Family (Cengage / Michael L. Hardman, Clifford J. Drew, and M. Winston Egan)</a> - A comprehensive exploration of disabilities across the lifespan, focusing on psychological and social dynamics in families and schools.</p>
+<p><a href="https://www.coursera.org/learn/managing-adhd-autism-learning-disabilities-and-concussion-in-school" target="_blank" rel="noopener noreferrer">Managing ADHD, Autism, Learning Disabilities, and Concussion in School (Coursera / University of Colorado System)</a> - An applied clinical and educational course detailing symptom presentation, medical considerations, and school-based accommodations for common childhood exceptionalities.</p>
+<h2 id="assessment-diagnostic-evaluation-and-iep-development">Assessment, Diagnostic Evaluation, and IEP Development</h2>
+<p>Covers the administration and interpretation of formal and informal psychoeducational assessments, progress monitoring, Multi-Tiered System of Supports (MTSS), and the development of legally compliant Individualized Education Programs (IEPs).</p>
+<p><a href="https://books.google.com/books?isbn=9780137545544" target="_blank" rel="noopener noreferrer">Assessment in Special Education: A Practical Approach (Pearson / Roger Pierangelo and George A. Giuliani)</a> - A step-by-step guide to standardized testing, informal assessments, eligibility determinations, and test result interpretations.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/iep01/" target="_blank" rel="noopener noreferrer">IEPs: Developing High-Quality Individualized Education Programs (IRIS Center / Vanderbilt University)</a> - An interactive module teaching the formulation of Present Levels of Academic Achievement and Functional Performance (PLAAFP) statements and measurable annual goals aligned with the Supreme Court's Endrew F. standard.</p>
+<h2 id="evidence-based-instructional-strategies-and-universal-design">Evidence-Based Instructional Strategies and Universal Design</h2>
+<p>Focuses on designing accessible learning environments through explicit instruction, systematic scaffolding, task analysis, Differentiated Instruction, and Universal Design for Learning (UDL).</p>
+<p><a href="https://books.google.com/books?isbn=9780134792019" target="_blank" rel="noopener noreferrer">Strategies for Teaching Students with Learning and Behavior Problems (Pearson / Sharon R. Vaughn and Candace S. Bos)</a> - A standard methods text providing research-based instructional procedures in reading, writing, mathematics, and study skills.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/udl/" target="_blank" rel="noopener noreferrer">Universal Design for Learning: Designing Learning Experiences That Engage and Challenge All Students (IRIS Center / Vanderbilt University)</a> - A practical training module developed with CAST on applying the three core UDL principles to curricular goals, materials, and evaluations.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/di/" target="_blank" rel="noopener noreferrer">Differentiated Instruction: Maximizing the Learning of All Students (IRIS Center / Vanderbilt University)</a> - An interactive module exploring how to modify instructional content, process, and products according to student readiness, interest, and learning profile.</p>
+<p><a href="https://highleveragepractices.org/" target="_blank" rel="noopener noreferrer">High-Leverage Practices in Special Education (Council for Exceptional Children &amp; CEEDAR Center)</a> - A foundational open framework and video exemplar library demonstrating essential practices such as explicit instruction, flexible grouping, and active student engagement in real classrooms.</p>
+<h2 id="applied-behavior-analysis-and-positive-behavioral-supports">Applied Behavior Analysis and Positive Behavioral Supports</h2>
+<p>Introduces the principles of operant conditioning, Functional Behavior Assessments (FBA), Behavior Intervention Plans (BIP), and multi-tiered Positive Behavioral Interventions and Supports (PBIS) in educational settings.</p>
+<p><a href="https://books.google.com/books?isbn=9780135607558" target="_blank" rel="noopener noreferrer">Applied Behavior Analysis for Teachers (Pearson / Paul A. Alberto, Anne C. Troutman, and Judah B. Axe)</a> - The definitive applied textbook teaching educators how to collect ABC data, establish reinforcement schedules, and shape classroom behavior constructively.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/cbm/" target="_blank" rel="noopener noreferrer">Classroom Behavior Management (Part 1): Key Concepts and Foundational Practices (IRIS Center / Vanderbilt University)</a> - A structured module detailing how to create positive classroom climates, establish clear procedures, and address cultural considerations in student behavior.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/fba/" target="_blank" rel="noopener noreferrer">Functional Behavioral Assessment: Identifying the Reasons for Student Behavior (IRIS Center / Vanderbilt University)</a> - A guided module explaining how to identify behavioral functions (attention, escape, tangible, sensory) and design targeted intervention strategies.</p>
+<h2 id="assistive-technology-and-accessible-learning-materials">Assistive Technology and Accessible Learning Materials</h2>
+<p>Explores low-tech accommodations through high-tech hardware, Augmentative and Alternative Communication (AAC) systems, and digital accessibility guidelines that promote student independence.</p>
+<p><a href="https://books.google.com/books?isbn=9780134276991" target="_blank" rel="noopener noreferrer">Assistive Technology in the Classroom: Enhancing the School Experiences of Students with Disabilities (Pearson / Amy G. Dell, Deborah A. Newton, and Jerry G. Petroff)</a> - A comprehensive look at matching assistive hardware, software, and adaptations to individual student needs across developmental and academic areas.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/at/" target="_blank" rel="noopener noreferrer">Assistive Technology: An Overview (IRIS Center / Vanderbilt University)</a> - An interactive module detailing the legal requirements for AT consideration during IEP meetings and the process of evaluating device and service effectiveness.</p>
+<p><a href="https://www.coursera.org/learn/accessibility" target="_blank" rel="noopener noreferrer">An Introduction to Accessibility and Inclusive Design (Coursera / University of Illinois Urbana-Champaign)</a> - A course teaching universal digital access, accessible document preparation, and Web Content Accessibility Guidelines (WCAG) applicable to educational media.</p>
+<h2 id="inclusive-practices-co-teaching-and-multidisciplinary-collaboration">Inclusive Practices, Co-Teaching, and Multidisciplinary Collaboration</h2>
+<p>Examines co-teaching delivery models, paraprofessional supervision, related service coordination, and family-centered partnerships in general education and resource settings.</p>
+<p><a href="https://books.google.com/books?isbn=9781544365015" target="_blank" rel="noopener noreferrer">Teaching Students with Special Needs in Inclusive Classrooms (SAGE Publications / Diane P. Bryant, Brian R. Bryant, and Deborah D. Smith)</a> - A practical guide detailing co-teaching structures, collaborative problem-solving, and the ADAPT framework for inclusive environments.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/fam/" target="_blank" rel="noopener noreferrer">Family Engagement: Collaborating with Families of Students with Disabilities (IRIS Center / Vanderbilt University)</a> - An interactive module focused on building reciprocal, culturally responsive relationships with families during IEP planning and educational advocacy.</p>
+    </article>
+  </main>
 
 </body>
 </html>

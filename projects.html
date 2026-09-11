@@ -1,110 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
 
-<title>Projects</title>
-<link rel="stylesheet" href="/special-education/style.css">
-<meta name="description" content="">
+  <title>Projects</title>
+  <meta name="description" content="A lightweight static page by hocbigg.">
+  <meta name="author" content="hocbigg">
 
-<link rel="canonical" href="https://hocbigg.github.io/special-education/">
+  <link rel="canonical" href="https://hocbigg.github.io/special-education/projects.html">
+  <meta property="og:title" content="Projects">
+  <meta property="og:description" content="A lightweight static page by hocbigg.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hocbigg.github.io/special-education/projects.html">
+  <link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
 
-<meta property="og:title" content="Projects">
-<meta property="og:description" content="">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://hocbigg.github.io/special-education/">
-<meta name="author" content="hocbigg">
-<link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
+  <style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #595959;
+  --border: #e0e0e0;
+  --th-bg: #f6f8fa;
+  --code-bg: #f4f4f4;
+  --link: #0969da;
+  --focus-ring: #0969da;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --th-bg: #161b22;
+    --code-bg: #161b22;
+    --link: #58a6ff;
+    --focus-ring: #58a6ff;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5rem auto;
+  max-width: min(60rem, 92vw);
+  padding: 0 0.75rem 3.5rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  font: 1.15rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  word-wrap: break-word;
+}
+
+.site-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem 1.25rem;
+  font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a:hover, 
+nav a:focus-visible {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+nav .nav-brand {
+  color: var(--fg);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  color: var(--fg);
+}
+h1 { font-size: 1.85rem; margin-top: 0.5em; }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.2rem; }
+
+p, ul, ol, blockquote, table {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.page-header img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  tab-size: 2;
+}
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+th {
+  background-color: var(--th-bg);
+  font-weight: 600;
+}
+
+blockquote {
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media print {
+  body {
+    max-width: none;
+    color: #000;
+    background: #fff;
+  }
+  .skip-link, nav {
+    display: none;
+  }
+}
+  </style>
 </head>
-
 <body>
 
-<nav>
-<a href="/">Hocbigg</a>
-<a href="/special-education/">Special-Education</a>
-<a href="/special-education/projects.html">Projects</a>
-<a href="/special-education/extras/courses.html">Extra Courses</a>
-<a href="/special-education/extras/readings.html">Extra Reading</a>
-<a href="https://github.com/hocbigg/special-education/" target="_blank">View on Github</a>
-</nav>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<main>
-<article>
+  <header class="site-header">
+    <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="https://hocbigg.github.io/" class="nav-brand">Hocbigg</a></li>
+      <li><a href="/special-education/">Special Education</a></li>
+      <li><a href="/special-education/projects.html">Projects</a></li>
+      <li><a href="/special-education/extras/readings.html">Extra Readings</a></li>
+      <li><a href="/special-education/extras/courses.html">Extra Courses</a></li>
+      <li><a href="/special-education/resources.html">Resources</a></li>
+      <li><a href="/special-education/extras/other_curricula.html">Other Curricula</a></li>
+      <li><a href="https://github.com/hocbigg/" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+    </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article>
 
 <h1 id="projects">Projects</h1>
-<p>This page is a curated collection of well-written, step-by-step guides for learning Special Education through hands-on, project-based practice.</p>
+<p>This directory provides curated step-by-step guides, published methodological walkthroughs, and open templates for learning Special Education through hands-on practice. By creating pedagogical, diagnostic, behavioral, and assistive artifacts, self-directed learners bridge foundational theory and real-world application.</p>
 <blockquote>
-<p><em>What I cannot create, I do not understand — Richard Feynman.</em></p>
+<p><em>What I cannot create, I do not understand.</em> — Richard Feynman</p>
 </blockquote>
-<p>These projects are meant to support learning throughout the curriculum, not only at the end.<br />
-By building, writing, creating, or reconstructing real artifacts in the field, learners develop practical understanding alongside theoretical study.</p>
-<h2 id="tutorials">Tutorials</h2>
+<h2 id="write-an-individualized-education-program-iep">Write an Individualized Education Program (IEP)</h2>
 <ul>
-<li><a href="#write-your-own-individualized-education-program">Individualized Education Program</a></li>
-<li><a href="#design-your-own-lesson-plan">Lesson Plan</a></li>
-<li><a href="#develop-your-own-behavior-intervention-plan">Behavior Intervention Plan</a></li>
-<li><a href="#create-your-own-visual-support">Visual Support</a></li>
-<li><a href="#build-your-own-accommodation-list">Accommodation List</a></li>
-<li><a href="#write-your-own-social-story">Social Story</a></li>
-<li><a href="#conduct-your-own-functional-behavior-assessment">Functional Behavior Assessment</a></li>
-<li><a href="#adapt-your-own-inclusive-activity">Inclusive Activity</a></li>
-<li><a href="#construct-your-own-communication-board">Communication Board</a></li>
-<li><a href="#create-your-own-sensory-diet">Sensory Diet</a></li>
+<li><a href="https://www2.ed.gov/parents/needs/speced/iepguide/index.html" target="_blank" rel="noopener noreferrer">A Guide to the Individualized Education Program (U.S. Department of Education)</a></li>
+<li><a href="https://iris.peabody.vanderbilt.edu/module/iep01/" target="_blank" rel="noopener noreferrer">IEPs: Developing High-Quality Individualized Education Programs (IRIS Center / Vanderbilt University)</a></li>
+<li><a href="https://www.nwea.org/blog/2025/how-to-write-an-effective-iep" target="_blank" rel="noopener noreferrer">How to Write an Effective IEP (Natalie Contreras / NWEA)</a></li>
 </ul>
-<h3 id="individualized-education-program">Individualized Education Program</h3>
+<h2 id="conduct-a-functional-behavior-assessment-fba">Conduct a Functional Behavior Assessment (FBA)</h2>
 <ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://www.ed.gov/sites/ed/files/parents/needs/speced/iepguide/iepguide.pdf">A Guide to the Individualized Education Program</a> (PDF Guide)</li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://www.nwea.org/blog/2025/how-to-write-an-effective-iep">How to write an effective IEP</a> (Step-by-step article)</li>
+<li><a href="https://iris.peabody.vanderbilt.edu/module/fba/" target="_blank" rel="noopener noreferrer">Functional Behavioral Assessment: Identifying the Reasons for Student Behavior (IRIS Center / Vanderbilt University)</a></li>
+<li><a href="https://intensiveintervention.org/resource/using-fba-diagnostic-assessment-behavior" target="_blank" rel="noopener noreferrer">Using FBA for Diagnostic Assessment in Behavior: Training &amp; Tools (National Center on Intensive Intervention)</a></li>
+<li><a href="https://howtoaba.com/how-to-do-a-functional-behaviour-assessment" target="_blank" rel="noopener noreferrer">How to Do a Functional Behavior Assessment in ABA: A Comprehensive Guide (How to ABA)</a></li>
 </ul>
-<h3 id="lesson-plan">Lesson Plan</h3>
+<h2 id="develop-a-behavior-intervention-plan-bip">Develop a Behavior Intervention Plan (BIP)</h2>
 <ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://teachloveautism.com/how-to-create-lesson-plans-for-a-special-education-classroom">How to Create Lesson Plans for a Special Education Classroom (That Actually Work)</a> (Tutorial with framework)</li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://learningsupportlady.com/creating-a-lesson-plan-in-special-education">7 Essential Components for Creating a Successful Lesson Plan in Special Education</a> (Step-by-step guide)</li>
+<li><a href="https://iris.peabody.vanderbilt.edu/module/bip-elem/" target="_blank" rel="noopener noreferrer">Behavioral Intervention Plans: Developing a Plan to Address Student Behavior (IRIS Center / Vanderbilt University)</a></li>
+<li><a href="https://howtoaba.com/writing-bip" target="_blank" rel="noopener noreferrer">How to Write a Behavior Intervention Plan (How to ABA)</a></li>
 </ul>
-<h3 id="behavior-intervention-plan">Behavior Intervention Plan</h3>
+<h2 id="design-a-differentiated-or-inclusive-lesson-plan">Design a Differentiated or Inclusive Lesson Plan</h2>
 <ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://howtoaba.com/writing-bip">How to Write a Behavior Intervention Plan (BIP)</a> (Step-by-step process)</li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://iris.peabody.vanderbilt.edu/module/bip-sec/cresource/q1/p01">Page 1: Behavioral Intervention Plans</a> (Detailed steps from IRIS Center)</li>
+<li><a href="https://udlguidelines.cast.org/" target="_blank" rel="noopener noreferrer">Universal Design for Learning Guidelines (CAST)</a></li>
+<li><a href="https://iris.peabody.vanderbilt.edu/module/di/" target="_blank" rel="noopener noreferrer">Differentiated Instruction: Maximizing the Learning of All Students (IRIS Center / Vanderbilt University)</a></li>
+<li><a href="https://teachloveautism.com/how-to-create-lesson-plans-for-a-special-education-classroom" target="_blank" rel="noopener noreferrer">How to Create Lesson Plans for a Special Education Classroom (Teach Love Autism)</a></li>
+<li><a href="https://learningsupportlady.com/creating-a-lesson-plan-in-special-education" target="_blank" rel="noopener noreferrer">7 Essential Components for Creating a Successful Lesson Plan in Special Education (Learning Support Lady)</a></li>
 </ul>
-<h3 id="visual-support">Visual Support</h3>
+<h2 id="adapt-an-educational-activity-with-universal-design-for-learning-udl">Adapt an Educational Activity with Universal Design for Learning (UDL)</h2>
 <ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://www.autismparentingmagazine.com/creating-visual-schedules">A Practical Guide to Creating Visual Schedules</a> (Step-by-step creation guide)</li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://ccids.umaine.edu/resources/visual-supports">Visual Supports Learning Links and Templates</a> (Templates and creation suggestions)</li>
+<li><a href="https://iris.peabody.vanderbilt.edu/module/udl/" target="_blank" rel="noopener noreferrer">Universal Design for Learning: Designing Learning Experiences That Engage and Challenge All Students (IRIS Center / Vanderbilt University)</a></li>
+<li><a href="https://blog.brookespublishing.com/5-types-of-instructional-adaptations-for-your-inclusive-classroom" target="_blank" rel="noopener noreferrer">5 Types of Instructional Adaptations for Your Inclusive Classroom (Brookes Publishing Blog)</a></li>
+<li><a href="https://blog.kaplanco.com/ii/classroom-environment-special-needs" target="_blank" rel="noopener noreferrer">Adapting Classroom Environments for Young Children with Special Needs (Kaplan Early Learning Company)</a></li>
 </ul>
-<h3 id="accommodation-list">Accommodation List</h3>
+<h2 id="build-an-accessibility-and-accommodations-plan">Build an Accessibility and Accommodations Plan</h2>
 <ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://iris.peabody.vanderbilt.edu/module/acc/cresource/q2/p04">Page 4: Selecting an Accommodation</a> (Selection and implementation steps from IRIS Center)</li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://inclusiveschools.org/resource/accommodations-in-the-classroom-a-guide-to-making-them-real">Accommodations in the Classroom: A Guide to Making Them Real</a> (Practical implementation guide)</li>
+<li><a href="https://iris.peabody.vanderbilt.edu/module/acc/" target="_blank" rel="noopener noreferrer">Accommodations: Instructional and Testing Supports for Students with Disabilities (IRIS Center / Vanderbilt University)</a></li>
+<li><a href="https://files.eric.ed.gov/fulltext/ED565777.pdf" target="_blank" rel="noopener noreferrer">Accommodations: Assisting Students with Disabilities (Florida Department of Education / ERIC)</a></li>
 </ul>
-<h3 id="social-story">Social Story</h3>
+<h2 id="create-visual-schedules-and-environmental-supports">Create Visual Schedules and Environmental Supports</h2>
 <ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://vkc.vumc.org/assets/files/tipsheets/socialstoriestips.pdf">How to Write a Social Story™</a> (PDF Guide) — provides clear guidelines and language rules for constructing effective stories</li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://iidc.indiana.edu/irca/articles/writing-and-using-social-narratives.html">Writing and Using Social Narratives</a> (Article) — outlines identification, target behavior definition, and creation process with examples</li>
+<li><a href="https://ccids.umaine.edu/resources/visual-supports" target="_blank" rel="noopener noreferrer">Visual Supports Learning Links and Templates (Center for Community Inclusion and Disability Studies / University of Maine)</a></li>
+<li><a href="https://www.autismparentingmagazine.com/creating-visual-schedules" target="_blank" rel="noopener noreferrer">A Practical Guide to Creating Visual Schedules (Autism Parenting Magazine)</a></li>
 </ul>
-<h3 id="functional-behavior-assessment">Functional Behavior Assessment</h3>
+<h2 id="construct-a-low-tech-aac-communication-board">Construct a Low-Tech AAC Communication Board</h2>
 <ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://www.sde.idaho.gov/wp-content/uploads/2025/06/Functional-Behavior-Assessment-Technical-Handbook.pdf">Conducting a Functional Behavior Assessment: A Technical Handbook</a> (PDF Handbook) — detailed step-by-step sections with forms and guidance for each phase</li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://howtoaba.com/how-to-do-a-functional-behaviour-assessment">How to Do a Functional Behavior Assessment in ABA: A Comprehensive Guide</a> (Step-by-step article) — practical workflow for conducting FBA with observable data focus</li>
+<li><a href="https://www.communicationcommunity.com/how-to-make-a-communication-board" target="_blank" rel="noopener noreferrer">How to Make a Communication Board (Communication Community)</a></li>
+<li><a href="https://praacticalaac.org/praactical/make-it-monday-manual-communication-boards-with-core-vocabulary" target="_blank" rel="noopener noreferrer">Make It Monday: Manual Communication Boards with Core Vocabulary (PrAACtical AAC)</a></li>
 </ul>
-<h3 id="inclusive-activity">Inclusive Activity</h3>
+<h2 id="write-a-social-narrative-or-social-story">Write a Social Narrative or Social Story</h2>
 <ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://blog.brookespublishing.com/5-types-of-instructional-adaptations-for-your-inclusive-classroom">5 Types of Instructional Adaptations for Your Inclusive Classroom</a> (Blog post) — describes adaptation types with examples to model reconstruction of activities</li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://blog.kaplanco.com/ii/classroom-environment-special-needs">Adapting Classroom Environments for Young Children with Special Needs</a> (Article) — shows environmental and activity adjustments to increase participation</li>
+<li><a href="https://vkc.vumc.org/assets/files/tipsheets/socialstoriestips.pdf" target="_blank" rel="noopener noreferrer">How to Write a Social Story (Vanderbilt Kennedy Center TRIAD)</a></li>
+<li><a href="https://iidc.indiana.edu/irca/articles/writing-and-using-social-narratives.html" target="_blank" rel="noopener noreferrer">Writing and Using Social Narratives (Indiana Resource Center for Autism)</a></li>
 </ul>
-<h3 id="communication-board">Communication Board</h3>
+<h2 id="design-a-classroom-sensory-diet-and-regulation-plan">Design a Classroom Sensory Diet and Regulation Plan</h2>
 <ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://www.communicationcommunity.com/how-to-make-a-communication-board">How to Make a Communication Board</a> (Article) — discusses tools, considerations, and creation methods for custom boards</li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://praacticalaac.org/praactical/make-it-monday-manual-communication-boards-with-core-vocabulary">Make It Monday: Manual Communication Boards with Core Vocabulary</a> (Blog series) — inspires creation of low-tech boards using core vocabulary examples</li>
+<li><a href="https://fragilex.org/living-with-fragile-x-syndrome/treatment-and-intervention/sensory-diet/" target="_blank" rel="noopener noreferrer">Concept and Use of a Sensory Diet (National Fragile X Foundation)</a></li>
+<li><a href="https://www.theottoolbox.com/how-to-create-sensory-diet" target="_blank" rel="noopener noreferrer">How to Create a Sensory Diet (The OT Toolbox)</a></li>
 </ul>
-<h3 id="sensory-diet">Sensory Diet</h3>
-<ul>
-<li><a target="_blank" rel="noopener noreferrer" href="https://www.theottoolbox.com/how-to-create-sensory-diet">How to Create a Sensory Diet</a> (Article) — explains creation process with resources and activity ideas</li>
-<li><a target="_blank" rel="noopener noreferrer" href="https://fragilex.org/wp-content/uploads/2025/02/sensory-diet-concept-w-template.pdf">The Sensory Diet Concept and Use of the Sensory Diet Template</a> (PDF with template) — includes template and elements for designing personalized sensory input plans</li>
-</ul>
-</article>
-</main>
+    </article>
+  </main>
 
 </body>
 </html>

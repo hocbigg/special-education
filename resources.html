@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+
+  <title>Special Education Resources</title>
+  <meta name="description" content="A lightweight static page by hocbigg.">
+  <meta name="author" content="hocbigg">
+
+  <link rel="canonical" href="https://hocbigg.github.io/special-education/resources.html">
+  <meta property="og:title" content="Special Education Resources">
+  <meta property="og:description" content="A lightweight static page by hocbigg.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hocbigg.github.io/special-education/resources.html">
+  <link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
+
+  <style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #595959;
+  --border: #e0e0e0;
+  --th-bg: #f6f8fa;
+  --code-bg: #f4f4f4;
+  --link: #0969da;
+  --focus-ring: #0969da;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --th-bg: #161b22;
+    --code-bg: #161b22;
+    --link: #58a6ff;
+    --focus-ring: #58a6ff;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5rem auto;
+  max-width: min(60rem, 92vw);
+  padding: 0 0.75rem 3.5rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  font: 1.15rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  word-wrap: break-word;
+}
+
+.site-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem 1.25rem;
+  font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a:hover, 
+nav a:focus-visible {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+nav .nav-brand {
+  color: var(--fg);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  color: var(--fg);
+}
+h1 { font-size: 1.85rem; margin-top: 0.5em; }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.2rem; }
+
+p, ul, ol, blockquote, table {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.page-header img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  tab-size: 2;
+}
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+th {
+  background-color: var(--th-bg);
+  font-weight: 600;
+}
+
+blockquote {
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media print {
+  body {
+    max-width: none;
+    color: #000;
+    background: #fff;
+  }
+  .skip-link, nav {
+    display: none;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="https://hocbigg.github.io/" class="nav-brand">Hocbigg</a></li>
+      <li><a href="/special-education/">Special Education</a></li>
+      <li><a href="/special-education/projects.html">Projects</a></li>
+      <li><a href="/special-education/extras/readings.html">Extra Readings</a></li>
+      <li><a href="/special-education/extras/courses.html">Extra Courses</a></li>
+      <li><a href="/special-education/resources.html">Resources</a></li>
+      <li><a href="/special-education/extras/other_curricula.html">Other Curricula</a></li>
+      <li><a href="https://github.com/hocbigg/" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+    </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article>
+
+<h1 id="special-education-resources">Special Education Resources</h1>
+<p>A curated directory of statutory databases, intervention clearinghouses, accessibility evaluation utilities, and practical implementation toolkits for self-directed study and practical reference in Special Education.</p>
+<h2 id="statutory-frameworks-special-education-law-case-guidance">Statutory Frameworks, Special Education Law &amp; Case Guidance</h2>
+<p>Covers primary legal repositories, regulatory policy letters, procedural safeguard manuals, and case law databases governing special education rights and compliance.</p>
+<ul>
+<li><a href="https://sites.ed.gov/idea/" target="_blank" rel="noopener noreferrer">Individuals with Disabilities Education Act (IDEA) Portal (U.S. Department of Education)</a> - The official federal statutory repository containing IDEA Part B and Part C regulations, policy letters, state performance plans, and federal guidance.</li>
+<li><a href="https://www.wrightslaw.com/" target="_blank" rel="noopener noreferrer">Wrightslaw Special Education Law and Advocacy (Peter W. D. Wright &amp; Pamela Darr Wright)</a> - A searchable legal database providing case law analyses, procedural safeguard breakdowns, and statutory compliance articles for educators, advocates, and families.</li>
+<li><a href="https://www.parentcenterhub.org/" target="_blank" rel="noopener noreferrer">Center for Parent Information and Resources (CPIR)</a> - An OSEP-funded clearinghouse offering comprehensive, plain-language guides to IDEA rights, IEP meeting procedures, and state-level parent training resources.</li>
+</ul>
+<h2 id="evidence-based-intervention-clearinghouses-progress-monitoring">Evidence-Based Intervention Clearinghouses &amp; Progress Monitoring</h2>
+<p>Provides searchable databases and evaluation matrices that assess the empirical validity, effect sizes, and implementation fidelity of academic and behavioral interventions.</p>
+<ul>
+<li><a href="https://ies.ed.gov/ncee/wwc/" target="_blank" rel="noopener noreferrer">What Works Clearinghouse (Institute of Education Sciences)</a> - A searchable federal database reviewing experimental and quasi-experimental educational research to rate the effectiveness of instructional and behavioral interventions.</li>
+<li><a href="https://intensiveintervention.org/tools-charts" target="_blank" rel="noopener noreferrer">Intervention and Assessment Tools Charts (National Center on Intensive Intervention)</a> - An interactive evaluation chart rating the technical rigor of academic screening, progress monitoring, and Tier 3 intensive intervention programs.</li>
+<li><a href="https://afirm.fpg.unc.edu/" target="_blank" rel="noopener noreferrer">Autism Focused Intervention Resources and Modules (AFIRM / Frank Porter Graham Child Development Institute)</a> - An open clearinghouse providing implementation checklists, data sheets, and planning tools for 28 vetted evidence-based practices for autistic learners.</li>
+<li><a href="https://ebi.missouri.edu/" target="_blank" rel="noopener noreferrer">Evidence-Based Intervention Network (University of Missouri)</a> - A repository of empirically supported academic and behavioral intervention briefs, assessment protocols, and integrity checklists for school practitioners.</li>
+</ul>
+<h2 id="universal-design-for-learning-digital-accessibility-tools">Universal Design for Learning &amp; Digital Accessibility Tools</h2>
+<p>Features interactive design frameworks, accessibility evaluation utilities, and alternate media repositories for eliminating barriers in curriculum and instructional design.</p>
+<ul>
+<li><a href="https://udlguidelines.cast.org/" target="_blank" rel="noopener noreferrer">Universal Design for Learning Guidelines (CAST)</a> - An interactive reference matrix detailing concrete checkpoints across engagement, representation, and action/expression to eliminate instructional barriers.</li>
+<li><a href="https://aem.cast.org/" target="_blank" rel="noopener noreferrer">National Center on Accessible Educational Materials (AEM Center at CAST)</a> - A technical assistance portal offering decision-making trees, procurement rubrics, and quality indicators for accessible digital learning materials and NIMAS compliance.</li>
+<li><a href="https://wave.webaim.org/" target="_blank" rel="noopener noreferrer">WAVE Web Accessibility Evaluation Tools (WebAIM / Utah State University)</a> - A browser-based evaluation suite that analyzes digital classroom materials, learning management systems, and websites against WCAG accessibility standards.</li>
+<li><a href="https://www.bookshare.org/" target="_blank" rel="noopener noreferrer">Bookshare (Benetech)</a> - The world's largest accessible online digital library providing over one million titles in audio, braille, and highlighted-text formats for individuals with qualified print disabilities.</li>
+</ul>
+<h2 id="assistive-technology-augmentative-communication-repositories">Assistive Technology &amp; Augmentative Communication Repositories</h2>
+<p>Encompasses national assistive device directories, open-source communication symbol systems, and practical toolkits for implementing augmentative and alternative communication (AAC).</p>
+<ul>
+<li><a href="https://at3center.net/" target="_blank" rel="noopener noreferrer">National Assistive Technology Act Technical Assistance and Training Center (AT3 Center)</a> - A national directory and resource hub providing device loan databases, state assistive technology program directories, and implementation toolkits.</li>
+<li><a href="https://www.project-core.com/" target="_blank" rel="noopener noreferrer">Project Core (Center for Literacy and Disability Studies / UNC Chapel Hill)</a> - An open implementation repository offering downloadable Universal Core 36-location communication boards, instructional routines, and classroom modeling guides for emergent communicators.</li>
+<li><a href="https://www.openaac.org/" target="_blank" rel="noopener noreferrer">OpenAAC (Open Source AAC Initiative)</a> - An open resource collective establishing open technical standards, symbol libraries, and clinical principles to ensure augmentative communication tools remain accessible and interoperable.</li>
+</ul>
+<h2 id="positive-behavioral-supports-multi-tiered-systems">Positive Behavioral Supports &amp; Multi-Tiered Systems</h2>
+<p>Supplies operational blueprints, visual supports, tiered fidelity assessments, and inclusive planning templates for school-wide and individual behavioral systems.</p>
+<ul>
+<li><a href="https://www.pbis.org/" target="_blank" rel="noopener noreferrer">Center on PBIS (U.S. Department of Education Office of Special Education Programs)</a> - The primary federal technical assistance portal for Positive Behavioral Interventions and Supports, featuring tiered fidelity inventories, blueprint manuals, and behavioral tracking resources.</li>
+<li><a href="https://challengingbehavior.org/" target="_blank" rel="noopener noreferrer">National Center for Pyramid Model Innovations (NCPMI)</a> - A resource hub containing visual scripts, emotional regulation tools, problem-solving storyboards, and preschool-to-elementary behavioral supports.</li>
+<li><a href="https://tiescenter.org/" target="_blank" rel="noopener noreferrer">TIES Center (University of Minnesota)</a> - A national technical assistance center providing practical scheduling tools, collaborative planning templates, and inclusive placement guides for students with extensive support needs.</li>
+<li><a href="https://www.understood.org/" target="_blank" rel="noopener noreferrer">Understood (Understood for All, Inc.)</a> - A multimedia resource center providing practical symptom explainers, accommodation decision guides, and simulation tools for ADHD, dyslexia, and executive function differences.</li>
+</ul>
+    </article>
+  </main>
+
+</body>
+</html>

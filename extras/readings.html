@@ -1,54 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
 
-<title>Great Readings</title>
-<link rel="stylesheet" href="/special-education/style.css">
-<meta name="description" content="">
+  <title>Great Readings</title>
+  <meta name="description" content="A lightweight static page by hocbigg.">
+  <meta name="author" content="hocbigg">
 
-<link rel="canonical" href="https://hocbigg.github.io/special-education/">
+  <link rel="canonical" href="https://hocbigg.github.io/special-education/extras/readings.html">
+  <meta property="og:title" content="Great Readings">
+  <meta property="og:description" content="A lightweight static page by hocbigg.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hocbigg.github.io/special-education/extras/readings.html">
+  <link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
 
-<meta property="og:title" content="Great Readings">
-<meta property="og:description" content="">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://hocbigg.github.io/special-education/">
-<meta name="author" content="hocbigg">
-<link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
+  <style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #595959;
+  --border: #e0e0e0;
+  --th-bg: #f6f8fa;
+  --code-bg: #f4f4f4;
+  --link: #0969da;
+  --focus-ring: #0969da;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --th-bg: #161b22;
+    --code-bg: #161b22;
+    --link: #58a6ff;
+    --focus-ring: #58a6ff;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5rem auto;
+  max-width: min(60rem, 92vw);
+  padding: 0 0.75rem 3.5rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  font: 1.15rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  word-wrap: break-word;
+}
+
+.site-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem 1.25rem;
+  font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a:hover, 
+nav a:focus-visible {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+nav .nav-brand {
+  color: var(--fg);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  color: var(--fg);
+}
+h1 { font-size: 1.85rem; margin-top: 0.5em; }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.2rem; }
+
+p, ul, ol, blockquote, table {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.page-header img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  tab-size: 2;
+}
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+th {
+  background-color: var(--th-bg);
+  font-weight: 600;
+}
+
+blockquote {
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media print {
+  body {
+    max-width: none;
+    color: #000;
+    background: #fff;
+  }
+  .skip-link, nav {
+    display: none;
+  }
+}
+  </style>
 </head>
-
 <body>
 
-<nav>
-<a href="/">Hocbigg</a>
-<a href="/special-education/">Special-Education</a>
-<a href="/special-education/projects.html">Projects</a>
-<a href="/special-education/extras/courses.html">Extra Courses</a>
-<a href="/special-education/extras/readings.html">Extra Reading</a>
-<a href="https://github.com/hocbigg/special-education/" target="_blank">View on Github</a>
-</nav>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<main>
-<article>
+  <header class="site-header">
+    <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="https://hocbigg.github.io/" class="nav-brand">Hocbigg</a></li>
+      <li><a href="/special-education/">Special Education</a></li>
+      <li><a href="/special-education/projects.html">Projects</a></li>
+      <li><a href="/special-education/extras/readings.html">Extra Readings</a></li>
+      <li><a href="/special-education/extras/courses.html">Extra Courses</a></li>
+      <li><a href="/special-education/resources.html">Resources</a></li>
+      <li><a href="/special-education/extras/other_curricula.html">Other Curricula</a></li>
+      <li><a href="https://github.com/hocbigg/" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+    </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article>
 
 <h1 id="great-readings">Great Readings</h1>
-<p>This document consists of great books or articles on [Field].
-Some are here because there is a course covering the same material;
-some are just great books that you should read at some point in your career.</p>
-<p>Once you have made it through most of the curriculum, knowing whether a book is worth your time will become easier.
-Or, if you are struggling in one of the courses, perhaps reading a book on the subject will help.</p>
-<p>| Name | Author(s) / Editor(s) |
-| --- | --- | --- |
-| <em><a target="_blank" rel="noopener noreferrer" href="https://link.springer.com/book/10.1007/978-1-4939-1483-8">Inclusive Special Education: Evidence-Based Practices for Children with Special Needs and Disabilities</a></em> | Garry Hornby (<a target="_blank" rel="noopener noreferrer" href="https://link.springer.com/book/10.1007/978-1-4939-1483-8">SpringerLink</a>) |
-| <em><a target="_blank" rel="noopener noreferrer" href="https://link.springer.com/book/10.1007/978-94-6300-857-0">Special Educational Needs and Inclusive Practices: An International Perspective</a></em> | Fabio Dovigo (ed.) (<a target="_blank" rel="noopener noreferrer" href="https://link.springer.com/book/10.1007/978-94-6300-857-0">SpringerLink</a>) |
-| <em><a target="_blank" rel="noopener noreferrer" href="https://www.mdpi.com/books/reprint/4506">Special and Inclusive Education: Perspectives, Challenges and Prospects</a></em> | Garry Hornby, J. K. James M. Kauffman (eds.) (<a target="_blank" rel="noopener noreferrer" href="https://www.mdpi.com/books/reprint/4506">MDPI</a>) |
-| <em><a target="_blank" rel="noopener noreferrer" href="https://www.bloomsbury.com/au/disability-intersectionality-and-belonging-in-special-education-9781538175811/">Disability, Intersectionality, and Belonging in Special Education</a></em> | Elizabeth A. Harkins Monaco, L. Lynn Stansberry Brusnahan, Marcus C. Fuller, Martin O. Odima Jr. (<a target="_blank" rel="noopener noreferrer" href="https://www.bloomsbury.com/au/disability-intersectionality-and-belonging-in-special-education-9781538175811/">Bloomsbury Publishing</a>) |
-| <em><a target="_blank" rel="noopener noreferrer" href="https://link.springer.com/book/10.1007/978-981-15-0524-9">Disability Inclusion and Inclusive Education</a></em> | (Editors/Authors as listed in the work) — a holistic, socio-psychological perspective on disability and inclusion. (<a target="_blank" rel="noopener noreferrer" href="https://link.springer.com/book/10.1007/978-981-15-0524-9">SpringerLink</a>) |</p>
-<p><em>Why they matter:</em> These books go beyond basic pedagogy or assessment: they explore inclusive philosophy, international policy/practice comparisons, intersectionality (how disability intersects race, class, culture), and evidence-based inclusive practices. They’re ideal for deepening theoretical grounding or framing inclusive education in broader social contexts.</p>
-</article>
-</main>
+<p>This curated bibliography brings together field-defining books, landmark empirical papers, foundational clinical essays, and paradigm-shifting monographs in Special Education. Rather than introductory survey textbooks, these works represent milestone intellectual breakthroughs that have shaped the legal, behavioral, cognitive, and socio-cultural dimensions of the discipline.</p>
+<h2 id="historical-foundations-clinical-paradigms">Historical Foundations &amp; Clinical Paradigms</h2>
+<div class="table-wrapper" tabindex="0" role="region" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Author(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://archive.org/details/anhistoricalacc00itargoog" target="_blank" rel="noopener noreferrer"><em>An Historical Account of the Discovery and Education of a Savage Man</em></a></td>
+<td>Jean-Marc Gaspard Itard</td>
+</tr>
+<tr>
+<td><a href="https://www.marxists.org/archive/vygotsky/works/1929/defectology.htm" target="_blank" rel="noopener noreferrer"><em>The Fundamentals of Defectology</em></a></td>
+<td>Lev S. Vygotsky</td>
+</tr>
+<tr>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/4880460/" target="_blank" rel="noopener noreferrer"><em>Autistic Disturbances of Affective Contact</em></a></td>
+<td>Leo Kanner</td>
+</tr>
+<tr>
+<td><a href="https://bbi.syr.edu/wp-content/uploads/2016/05/christmas-purgatory.pdf" target="_blank" rel="noopener noreferrer"><em>Christmas in Purgatory: A Photographic Essay on Mental Retardation</em></a></td>
+<td>Burton Blatt and Fred Kaplan</td>
+</tr>
+<tr>
+<td><a href="https://archive.org/details/educatingretarde0000samu" target="_blank" rel="noopener noreferrer"><em>Educating the Retarded Child</em></a></td>
+<td>Samuel A. Kirk and G. Orville Johnson</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="behavioral-cognitive-instructional-science">Behavioral, Cognitive &amp; Instructional Science</h2>
+<div class="table-wrapper" tabindex="0" role="region" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Author(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1310980/" target="_blank" rel="noopener noreferrer"><em>Some Current Dimensions of Applied Behavior Analysis</em></a></td>
+<td>Donald M. Baer, Montrose M. Wolf, and Todd R. Risley</td>
+</tr>
+<tr>
+<td><a href="https://books.google.com/books?isbn=9781880183809" target="_blank" rel="noopener noreferrer"><em>Theory of Instruction: Principles and Applications</em></a></td>
+<td>Siegfried Engelmann and Douglas Carnine</td>
+</tr>
+<tr>
+<td><a href="https://pubmed.ncbi.nlm.nih.gov/3571656/" target="_blank" rel="noopener noreferrer"><em>Behavioral Treatment and Normal Educational and Intellectual Functioning in Young Autistic Children</em></a></td>
+<td>O. Ivar Lovaas</td>
+</tr>
+<tr>
+<td><a href="https://eric.ed.gov/?id=EJ326811" target="_blank" rel="noopener noreferrer"><em>Curriculum-Based Measurement: The Emerging Alternative</em></a></td>
+<td>Stanley L. Deno</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="the-inclusion-debate-placement-disproportionality">The Inclusion Debate, Placement &amp; Disproportionality</h2>
+<div class="table-wrapper" tabindex="0" role="region" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Author(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://doi.org/10.1177/001440296803500101" target="_blank" rel="noopener noreferrer"><em>Special Education for the Mentally Retarded—Is Much of It Justifiable?</em></a></td>
+<td>Lloyd M. Dunn</td>
+</tr>
+<tr>
+<td><a href="https://archive.org/details/illusionoffullin0000unse" target="_blank" rel="noopener noreferrer"><em>The Illusion of Full Inclusion: A Comprehensive Critique of a Current Special Education Bandwagon</em></a></td>
+<td>James M. Kauffman and Daniel P. Hallahan (eds.)</td>
+</tr>
+<tr>
+<td><a href="https://archive.org/details/whyaresomanymino0000harr" target="_blank" rel="noopener noreferrer"><em>Why Are So Many Minority Students in Special Education? Understanding Race and Disability in Public Schools</em></a></td>
+<td>Beth Harry and Janette Klingner</td>
+</tr>
+<tr>
+<td><a href="https://books.google.com/books?isbn=9780820474281" target="_blank" rel="noopener noreferrer"><em>Reading Resistance: Discourses of Exclusion in Desegregation and Inclusion</em></a></td>
+<td>Beth A. Ferri and David J. Connor</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="universal-design-ableism-critical-disability-studies">Universal Design, Ableism &amp; Critical Disability Studies</h2>
+<div class="table-wrapper" tabindex="0" role="region" aria-label="Scrollable table"><table>
+<thead>
+<tr>
+<th>Title</th>
+<th>Author(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://eric.ed.gov/?id=EJ644478" target="_blank" rel="noopener noreferrer"><em>Eliminating Ableism in Education</em></a></td>
+<td>Thomas Hehir</td>
+</tr>
+<tr>
+<td><a href="https://www.cast.org/products-services/resources/2002/universal-design-learning-udl-teaching-every-student-rose" target="_blank" rel="noopener noreferrer"><em>Teaching Every Student in the Digital Age: Universal Design for Learning</em></a></td>
+<td>David H. Rose and Anne Meyer</td>
+</tr>
+<tr>
+<td><a href="https://books.google.com/books?isbn=9780820474632" target="_blank" rel="noopener noreferrer"><em>Disability Studies in Education: Readings in Theory and Method</em></a></td>
+<td>Susan L. Gabel (ed.)</td>
+</tr>
+<tr>
+<td><a href="https://books.google.com/books?isbn=9780807756676" target="_blank" rel="noopener noreferrer"><em>DisCrit: Disability Studies and Critical Race Theory in Education</em></a></td>
+<td>David J. Connor, Beth A. Ferri, and Subini A. Annamma (eds.)</td>
+</tr>
+</tbody>
+</table></div>
+    </article>
+  </main>
 
 </body>
 </html>

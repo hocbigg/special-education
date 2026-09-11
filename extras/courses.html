@@ -1,109 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light dark">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
 
-<title>Great Courses</title>
-<link rel="stylesheet" href="/special-education/style.css">
-<meta name="description" content="">
+  <title>Great Courses</title>
+  <meta name="description" content="A lightweight static page by hocbigg.">
+  <meta name="author" content="hocbigg">
 
-<link rel="canonical" href="https://hocbigg.github.io/special-education/">
+  <link rel="canonical" href="https://hocbigg.github.io/special-education/extras/courses.html">
+  <meta property="og:title" content="Great Courses">
+  <meta property="og:description" content="A lightweight static page by hocbigg.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://hocbigg.github.io/special-education/extras/courses.html">
+  <link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
 
-<meta property="og:title" content="Great Courses">
-<meta property="og:description" content="">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://hocbigg.github.io/special-education/">
-<meta name="author" content="hocbigg">
-<link rel="icon" href="https://hocbigg.github.io/images/favicon.ico">
+  <style>
+:root {
+  --bg: #ffffff;
+  --fg: #1a1a1a;
+  --muted: #595959;
+  --border: #e0e0e0;
+  --th-bg: #f6f8fa;
+  --code-bg: #f4f4f4;
+  --link: #0969da;
+  --focus-ring: #0969da;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --fg: #e6edf3;
+    --muted: #8b949e;
+    --border: #30363d;
+    --th-bg: #161b22;
+    --code-bg: #161b22;
+    --link: #58a6ff;
+    --focus-ring: #58a6ff;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 1.5rem auto;
+  max-width: min(60rem, 92vw);
+  padding: 0 0.75rem 3.5rem;
+  background-color: var(--bg);
+  color: var(--fg);
+  font: 1.15rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  word-wrap: break-word;
+}
+
+.site-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 0.5rem 1.25rem;
+  font-size: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+nav a:hover, 
+nav a:focus-visible {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+nav .nav-brand {
+  color: var(--fg);
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 1rem;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.3;
+  margin-top: 1.75em;
+  margin-bottom: 0.5em;
+  color: var(--fg);
+}
+h1 { font-size: 1.85rem; margin-top: 0.5em; }
+h2 { font-size: 1.45rem; }
+h3 { font-size: 1.2rem; }
+
+p, ul, ol, blockquote, table {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+li > ul,
+li > ol {
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.25rem;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.page-header img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.875em;
+  background-color: var(--code-bg);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+pre {
+  background-color: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  tab-size: 2;
+}
+pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+th, td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+}
+th {
+  background-color: var(--th-bg);
+  font-weight: 600;
+}
+
+blockquote {
+  border-left: 4px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+@media print {
+  body {
+    max-width: none;
+    color: #000;
+    background: #fff;
+  }
+  .skip-link, nav {
+    display: none;
+  }
+}
+  </style>
 </head>
-
 <body>
 
-<nav>
-<a href="/">Hocbigg</a>
-<a href="/special-education/">Special-Education</a>
-<a href="/special-education/projects.html">Projects</a>
-<a href="/special-education/extras/courses.html">Extra Courses</a>
-<a href="/special-education/extras/readings.html">Extra Reading</a>
-<a href="https://github.com/hocbigg/special-education/" target="_blank">View on Github</a>
-</nav>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<main>
-<article>
+  <header class="site-header">
+    <nav aria-label="Main Navigation">
+    <ul>
+      <li><a href="https://hocbigg.github.io/" class="nav-brand">Hocbigg</a></li>
+      <li><a href="/special-education/">Special Education</a></li>
+      <li><a href="/special-education/projects.html">Projects</a></li>
+      <li><a href="/special-education/extras/readings.html">Extra Readings</a></li>
+      <li><a href="/special-education/extras/courses.html">Extra Courses</a></li>
+      <li><a href="/special-education/resources.html">Resources</a></li>
+      <li><a href="/special-education/extras/other_curricula.html">Other Curricula</a></li>
+      <li><a href="https://github.com/hocbigg/" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+    </ul>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <article>
 
 <h1 id="great-courses">Great Courses</h1>
-<p>This is a list of high-quality courses that, for one reason or another, didn't make it into the curriculum.
-The most common reasons are that the course isn't available often enough,
-or that there was an alternative that fit better into the curriculum.</p>
-<h2 id="disability-inclusive-education-broader-contextual">Disability / Inclusive Education — Broader &amp; Contextual</h2>
-<table>
-<thead>
-<tr>
-<th>Courses</th>
-<th>Duration</th>
-<th>Effort</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a target="_blank" rel="noopener noreferrer" href="https://www.coursera.org/learn/disability-inclusion-education">Disability Inclusion in Education: Building Systems of Support</a></td>
-<td>~1 week (5 modules)</td>
-<td>~10 hrs/week (<a target="_blank" rel="noopener noreferrer" href="https://www.coursera.org/learn/disability-inclusion-education">Coursera</a>)</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener noreferrer" href="https://www.coursera.org/learn/disability-awareness">Disability Awareness and Support</a></td>
-<td>~7 hours total</td>
-<td>self-paced (~a few hrs/week) (<a target="_blank" rel="noopener noreferrer" href="https://www.coursera.org/learn/disability-awareness">Coursera</a>)</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener noreferrer" href="https://alison.com/course/foundations-of-special-needs-teaching">Foundations of Special Needs Teaching</a></td>
-<td>n/a (self-paced)</td>
-<td>self-paced (<a target="_blank" rel="noopener noreferrer" href="https://alison.com/course/foundations-of-special-needs-teaching">Alison</a>)</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener noreferrer" href="https://alison.com/course/special-needs-education">Special Needs Education (Intermediate)</a></td>
-<td>n/a (self-paced)</td>
-<td>self-paced (<a target="_blank" rel="noopener noreferrer" href="https://alison.com/course/special-needs-education">Alison</a>)</td>
-</tr>
-<tr>
-<td><a target="_blank" rel="noopener noreferrer" href="https://alison.com/course/special-education-needs-and-disabilities-send-inclusion-in-schools">Special Education Needs and Disabilities (SEND) Inclusion in Schools</a></td>
-<td>n/a (self-paced)</td>
-<td>self-paced (<a target="_blank" rel="noopener noreferrer" href="https://alison.com/course/special-education-needs-and-disabilities-send-inclusion-in-schools">Alison</a>)</td>
-</tr>
-</tbody>
-</table>
-<p><em>Why these are “extras”:</em> some are introductory or overlapping with core topics; others are more practice-oriented or have variable academic depth — good for broadening perspective, for initial exposure, or for continuing professional development.</p>
-<h2 id="online-learning-great-courses">Online Learning - Great Courses</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Courses</th>
-<th style="text-align: center;">Duration</th>
-<th style="text-align: center;">Effort</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;"><a target="_blank" rel="noopener noreferrer" href="https://www.coursera.org/learn/learning-how-to-learn">Learning How to Learn</a></td>
-<td style="text-align: center;">4 weeks</td>
-<td style="text-align: center;">2 hours/week</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a target="_blank" rel="noopener noreferrer" href="https://www.coursera.org/learn/mindshift">Mindshift</a></td>
-<td style="text-align: center;">4 weeks</td>
-<td style="text-align: center;">2 hours/week</td>
-</tr>
-<tr>
-<td style="text-align: left;"><a target="_blank" rel="noopener noreferrer" href="https://www.edx.org/learn/google-power-searching/google-power-searching-with-google">Powersearching with Google</a></td>
-<td style="text-align: center;">3 weeks</td>
-<td style="text-align: center;">4-6 hours/week</td>
-</tr>
-</tbody>
-</table>
-</article>
-</main>
+<p>This directory features standout open courses, comprehensive university lectures, and audiovisual deep-dives that extend beyond core introductory coursework to build deep intuition in behavioral sciences, neurodevelopmental differences, accessibility standards, and inclusive education policy.</p>
+<h2 id="neurodevelopmental-learning-profiles">Neurodevelopmental &amp; Learning Profiles</h2>
+<ul>
+<li><a href="https://www.coursera.org/learn/dyslexia" target="_blank" rel="noopener noreferrer">Overcoming Dyslexia (Coursera / Yale University / Dr. Sally Shaywitz &amp; Dr. Bennett Shaywitz)</a></li>
+<li><a href="https://www.coursera.org/learn/adhd-treatment" target="_blank" rel="noopener noreferrer">ADHD: Everyday Strategies for Elementary Students (Coursera / State University of New York at Buffalo / Dr. Greg Fabiano)</a></li>
+<li><a href="https://www.coursera.org/learn/autism-spectrum-disorder" target="_blank" rel="noopener noreferrer">Autism Spectrum Disorder (Coursera / University of California, Santa Cruz / Dr. Ninet Moradi)</a></li>
+<li><a href="https://www.coursera.org/learn/dyslexia-difficulties" target="_blank" rel="noopener noreferrer">Supporting Children with Difficulties in Reading and Writing (Coursera / University of London &amp; UCL Institute of Education / Dr. Jenny Thomson)</a></li>
+<li><a href="https://www.coursera.org/learn/teach-children-with-visual-impairment" target="_blank" rel="noopener noreferrer">Teaching Children with Visual Impairment: Creating Empowering Classrooms (Coursera / University of Cape Town / Dr. Brian Watermeyer)</a></li>
+<li><a href="https://www.coursera.org/learn/intellectual-disability-care-education" target="_blank" rel="noopener noreferrer">Severe to Profound Intellectual Disability: Circles of Care and Education (Coursera / University of Cape Town / Dr. Judith McKenzie)</a></li>
+<li><a href="https://www.open.edu/openlearn/health-sports-psychology/health/understanding-adhd" target="_blank" rel="noopener noreferrer">Understanding ADHD (OpenLearn / The Open University)</a></li>
+<li><a href="https://www.open.edu/openlearn/health-sports-psychology/mental-health/understanding-autism" target="_blank" rel="noopener noreferrer">Understanding Autism (OpenLearn / The Open University)</a></li>
+</ul>
+<h2 id="applied-behavior-analysis-behavioral-supports">Applied Behavior Analysis &amp; Behavioral Supports</h2>
+<ul>
+<li><a href="https://www.coursera.org/learn/everyday-parenting" target="_blank" rel="noopener noreferrer">Everyday Parenting: The ABCs of Child Rearing (Coursera / Yale University / Dr. Alan E. Kazdin)</a></li>
+<li><a href="https://www.coursera.org/learn/managing-adhd-autism-learning-disabilities-and-concussion-in-school" target="_blank" rel="noopener noreferrer">Managing ADHD, Autism, Learning Disabilities, and Concussion in School (Coursera / University of Colorado System)</a></li>
+<li><a href="https://www.coursera.org/learn/teaching-character" target="_blank" rel="noopener noreferrer">Teaching Character and Creating Positive Classrooms (Coursera / Relay Graduate School of Education / Dave Levin)</a></li>
+</ul>
+<h2 id="digital-accessibility-universal-design">Digital Accessibility &amp; Universal Design</h2>
+<ul>
+<li><a href="https://www.edx.org/learn/web-accessibility/w3cx-introduction-to-web-accessibility" target="_blank" rel="noopener noreferrer">W3Cx: Introduction to Web Accessibility (edX / World Wide Web Consortium)</a></li>
+<li><a href="https://www.edx.org/learn/computer-science/the-georgia-institute-of-technology-information-and-communication-technology-ict-accessibility" target="_blank" rel="noopener noreferrer">GTx: Information and Communication Technology (ICT) Accessibility (edX / Georgia Institute of Technology)</a></li>
+<li><a href="https://www.coursera.org/learn/disability-awareness" target="_blank" rel="noopener noreferrer">Disability Awareness and Support (Coursera / University of Pittsburgh / Dr. Mary Goldberg)</a></li>
+<li><a href="https://www.coursera.org/learn/accessibility" target="_blank" rel="noopener noreferrer">An Introduction to Accessibility and Inclusive Design (Coursera / University of Illinois Urbana-Champaign)</a></li>
+</ul>
+<h2 id="inclusive-systems-policy-advocacy">Inclusive Systems, Policy &amp; Advocacy</h2>
+<ul>
+<li><a href="https://www.futurelearn.com/courses/inclusive-education" target="_blank" rel="noopener noreferrer">Inclusive Education: Essential Knowledge for Success (FutureLearn / Queensland University of Technology / Prof. Linda Graham)</a></li>
+<li><a href="https://www.edx.org/learn/education/columbia-university-inclusive-teaching-supporting-all-students-in-the-college-classroom" target="_blank" rel="noopener noreferrer">ColumbiaX: Inclusive Teaching: Supporting All Students in the College Classroom (edX / Columbia University)</a></li>
+<li><a href="https://www.coursera.org/learn/disability-inclusion-education" target="_blank" rel="noopener noreferrer">Disability Inclusion in Education: Building Systems of Support (Coursera / University of Cape Town / Dr. Judith McKenzie)</a></li>
+</ul>
+    </article>
+  </main>
 
 </body>
 </html>
