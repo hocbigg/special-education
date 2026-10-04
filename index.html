@@ -18,6 +18,8 @@
 
   <style>
 :root {
+  color-scheme: light dark;
+
   --bg: #ffffff;
   --fg: #1a1a1a;
   --muted: #595959;
@@ -47,12 +49,14 @@
 
 body {
   margin: 1.5rem auto;
-  max-width: min(60rem, 92vw);
-  padding: 0 0.75rem 3.5rem;
+  max-width: 60rem;
+  padding: 0 1rem 3.5rem;
   background-color: var(--bg);
   color: var(--fg);
   font: 1.15rem/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  word-wrap: break-word;
+  
+  /* Cú pháp hiện đại thay thế cho word-wrap */
+  overflow-wrap: break-word;
 }
 
 .site-header {
@@ -93,7 +97,7 @@ nav .nav-brand {
 
 .skip-link {
   position: absolute;
-  top: -9999px;
+  transform: translateY(-150%);
   left: 1rem;
   background: var(--fg);
   color: var(--bg);
@@ -102,9 +106,11 @@ nav .nav-brand {
   text-decoration: none;
   font-weight: 600;
   border-radius: 4px;
+  transition: transform 0.2s ease;
 }
+
 .skip-link:focus {
-  top: 1rem;
+  transform: translateY(1rem);
 }
 
 .sr-only {
@@ -114,7 +120,7 @@ nav .nav-brand {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
@@ -126,13 +132,41 @@ nav .nav-brand {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.3;
-  margin-top: 1.75em;
-  margin-bottom: 0.5em;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   color: var(--fg);
+  font-weight: 600;
 }
-h1 { font-size: 1.85rem; margin-top: 0.5em; }
-h2 { font-size: 1.45rem; }
-h3 { font-size: 1.2rem; }
+
+h1 {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--border);
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.15rem;
+}
+
+h6 {
+  font-size: 1rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
 p, ul, ol, blockquote, table {
   margin-top: 0;
@@ -159,13 +193,28 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
+a:has(img) {
+  text-decoration: none;
+}
+
 .page-header {
   text-align: center;
   margin-bottom: 2rem;
 }
-.page-header img {
+
+.page-header .page-subtitle {
+  color: var(--muted);
+  font-size: 1.15rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+img {
   max-width: 100%;
   height: auto;
+}
+
+.page-header img {
   margin: 0 auto 1rem;
   display: block;
 }
@@ -178,6 +227,7 @@ code {
   border-radius: 4px;
   border: 1px solid var(--border);
 }
+
 pre {
   background-color: var(--code-bg);
   border: 1px solid var(--border);
@@ -186,33 +236,39 @@ pre {
   overflow-x: auto;
   tab-size: 2;
 }
+
 pre code {
   background: transparent;
   padding: 0;
   border: none;
   font-size: 0.9rem;
+  border-radius: 0;
 }
 
 .table-wrapper {
   overflow-x: auto;
   margin-bottom: 1.5rem;
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
   text-align: left;
 }
+
 th, td {
   border: 1px solid var(--border);
   padding: 0.6rem 0.75rem;
   vertical-align: top;
 }
+
 th {
   background-color: var(--th-bg);
   font-weight: 600;
 }
 
 blockquote {
+  margin-inline: 0;
   border-left: 4px solid var(--border);
   padding-left: 1rem;
   color: var(--muted);
@@ -221,11 +277,12 @@ blockquote {
 
 @media (prefers-reduced-motion: reduce) {
   * {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+    animation: none !important;
+    transition: none !important;
     scroll-behavior: auto !important;
   }
 }
+
 @media print {
   body {
     max-width: none;
@@ -251,8 +308,7 @@ blockquote {
       <li><a href="/special-education/extras/readings.html">Extra Readings</a></li>
       <li><a href="/special-education/extras/courses.html">Extra Courses</a></li>
       <li><a href="/special-education/resources.html">Resources</a></li>
-      <li><a href="/special-education/extras/other_curricula.html">Other Curricula</a></li>
-      <li><a href="https://github.com/hocbigg/" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
+      <li><a href="https://github.com/hocbigg/special-education" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only"> (opens in new tab)</span></a></li>
     </ul>
     </nav>
   </header>
@@ -262,18 +318,29 @@ blockquote {
 <header class="page-header">
   <img src="/images/logo.png" alt="Hocbigg logo">
   <h1>Hocbigg - Special Education</h1>
+  <p class="page-subtitle">Path to a free self-taught education in Special Education!</p>
+  <p class="last-updated"><small>Last updated on: <time datetime="2026-09-29">2026-09-29</time></small></p>
 </header>
-<h1 id="contents">Contents</h1>
+<h2 id="introduction">Introduction</h2>
+<p>Special education is the discipline dedicated to identifying, understanding, and addressing the instructional, behavioral, and developmental needs of students with disabilities. It sits at the intersection of civil rights law, educational psychology, diagnostic psychometrics, and specialized instructional design. The discipline's primary objective is to dismantle learning barriers and ensure that every learner — regardless of cognitive, sensory, physical, or emotional differences — receives an equitable, individualized education. For self-directed learners, studying special education provides the analytical frameworks and practical tools needed to evaluate learning differences, advocate within legal and educational systems, and design accessible instructional environments.</p>
+<p>This curriculum is designed for absolute beginners and assumes no prior formal training in teaching, educational psychology, or child development. It is built for independent learners — including career-changers, advocates, parents navigating the special education system, and interdisciplinary thinkers — who want a rigorous, practical understanding of how special education works without needing access to a university classroom or institutional practicum.</p>
+<h3 id="how-the-curriculum-is-structured">How the Curriculum Is Structured</h3>
+<p>The subjects follow a deliberate pedagogical progression that mirrors the operational workflow of the field:</p>
 <ul>
-<li><a href="#summary">Summary</a></li>
-<li><a href="#communities">Communities</a></li>
-<li><a href="#curriculum">Curriculum</a></li>
-<li><a href="#code-of-conduct">Code of conduct</a></li>
+<li><strong>Legal and Developmental Groundwork:</strong> Begin with <em>Foundations of Special Education</em> and <em>Characteristics and Etiologies of Exceptional Learners</em>. These two areas provide the statutory context (such as IDEA, Section 504, and the principle of Least Restrictive Environment) and familiarize you with the cognitive, sensory, and behavioral profiles of exceptional learners.</li>
+<li><strong>Evaluation and Legal Planning:</strong> Progress to <em>Assessment, Diagnostic Evaluation, and IEP Development</em>. This area serves as the operational bridge between diagnosis and instruction, teaching you how psychoeducational data is gathered and synthesized into a legally compliant Individualized Education Program (IEP).</li>
+<li><strong>Core Instructional and Behavioral Interventions:</strong> With the assessment framework established, proceed to <em>Evidence-Based Instructional Strategies and Universal Design</em> and <em>Applied Behavior Analysis and Positive Behavioral Supports</em>. These subjects can be studied in tandem; they supply the proactive academic strategies (such as explicit instruction and UDL) and behavioral methodologies (such as functional behavioral assessments and positive reinforcement) required to support diverse learners.</li>
+<li><strong>Accessibility Tools and Inclusive Systems:</strong> Conclude with <em>Assistive Technology and Accessible Learning Materials</em> and <em>Inclusive Practices, Co-Teaching, and Multidisciplinary Collaboration</em>. These areas address the physical, sensory, and digital adaptations that foster student independence, as well as the collaborative models needed to partner effectively with general educators, paraprofessionals, and families.</li>
 </ul>
-<h1 id="summary">Summary</h1>
-<p>The Special Education curriculum is a <strong>complete education in Special Education</strong> using online materials.</p>
-<p><strong><a href="/CONTRIBUTING.html">How to contribute</a></strong></p>
-<h1 id="communities">Communities</h1>
+<h3 id="scope">Scope</h3>
+<p>This curriculum focuses strictly on the foundational knowledge that every practitioner and informed advocate needs. It deliberately excludes narrow specializations — such as infant early intervention, deafblind specialist methods, or post-secondary transition planning — to keep the core sequence lean, cohesive, and manageable for independent study.</p>
+<p>Once you have mastered these core subjects, you can branch out into the companion resources in this series:</p>
+<ul>
+<li>Apply your theoretical knowledge by drafting functional behavioral assessments, lesson adaptations, and communication boards in <a href="projects.html">Projects</a>.</li>
+<li>Examine historical treatises, field-shaping debates, and seminal research papers in <a href="extras/readings.html">Readings</a>.</li>
+<li>Deepen your clinical intuition through lecture series and audiovisual deep-dives in <a href="extras/courses.html">Courses</a>.</li>
+</ul>
+<h3 id="communities">Communities</h3>
 <ul>
 <li>Forums:<ul>
 <li><a href="https://exceptionalchildren.org/engage/cecommunity-all-member-forum" target="_blank" rel="noopener noreferrer">CECommunity All-Member Forum (Council for Exceptional Children)</a></li>
@@ -293,40 +360,39 @@ blockquote {
 </li>
 <li>You can also interact through <a href="https://github.com/hocbigg/special-education/issues" target="_blank" rel="noopener noreferrer">GitHub issues</a>. If there is a problem with a course, or a change needs to be made to the curriculum, this is the place to start the conversation. Read more <a href="/CONTRIBUTING.html">here</a>.</li>
 </ul>
-<h1 id="curriculum">Curriculum</h1>
-<h2 id="foundations-of-special-education">Foundations of Special Education</h2>
+<h2 id="curriculum">Curriculum</h2>
+<h3 id="foundations-of-special-education">Foundations of Special Education</h3>
 <p>Examines the historical, legal, and ethical frameworks governing special education, including the Individuals with Disabilities Education Act (IDEA), Section 504, and the principles of Free Appropriate Public Education (FAPE) in the Least Restrictive Environment (LRE).</p>
-<p><a href="https://books.google.com/books?isbn=9780137520350" target="_blank" rel="noopener noreferrer">Exceptional Learners: An Introduction to Special Education (Pearson / Daniel P. Hallahan, James M. Kauffman, and Paige C. Pullen)</a> - The canonical introductory textbook covering the legal history, core terminology, and philosophical foundations of the field.</p>
-<p><a href="https://pressbooks.usnh.edu/edc703-803/" target="_blank" rel="noopener noreferrer">The Roles and Responsibilities of the Special Educator (Pressbooks / Paula Lombardi)</a> - An open-access textbook outlining federal statutory requirements, procedural safeguards, and the professional responsibilities of special educators.</p>
-<p><a href="https://www.coursera.org/learn/disability-inclusion-education" target="_blank" rel="noopener noreferrer">Disability Inclusion in Education: Building Systems of Support (Coursera / University of Cape Town)</a> - An audit-mode course focused on building inclusive institutional support systems and understanding disability rights.</p>
-<h2 id="characteristics-and-etiologies-of-exceptional-learners">Characteristics and Etiologies of Exceptional Learners</h2>
+<p><a href="https://books.google.com/books?isbn=9780137520350" target="_blank" rel="noopener noreferrer">Exceptional Learners: An Introduction to Special Education (Pearson / Daniel P. Hallahan, James M. Kauffman, and Paige C. Pullen)</a> - The primary comprehensive survey textbook covering the field's historical evolution, statutory mandates, and foundational concepts.</p>
+<p><a href="https://pressbooks.usnh.edu/edc703-803/" target="_blank" rel="noopener noreferrer">The Roles and Responsibilities of the Special Educator (Pressbooks / Paula Lombardi)</a> - A freely accessible, open-textbook alternative to Hallahan et al. that focuses closely on statutory mandates, procedural safeguards, and professional ethical standards.</p>
+<p><a href="https://www.coursera.org/learn/disability-inclusion-education" target="_blank" rel="noopener noreferrer">Disability Inclusion in Education: Building Systems of Support (Coursera / University of Cape Town)</a> - Complements either textbook above by offering an international audiovisual perspective on institutional support systems and human-rights frameworks.</p>
+<h3 id="characteristics-and-etiologies-of-exceptional-learners">Characteristics and Etiologies of Exceptional Learners</h3>
 <p>Surveys the developmental, behavioral, sensory, and cognitive characteristics of high- and low-incidence disabilities, framing neurodiversity alongside diagnostic criteria.</p>
-<p><a href="https://books.google.com/books?isbn=9781305500976" target="_blank" rel="noopener noreferrer">Human Exceptionality: School, Community, and Family (Cengage / Michael L. Hardman, Clifford J. Drew, and M. Winston Egan)</a> - A comprehensive exploration of disabilities across the lifespan, focusing on psychological and social dynamics in families and schools.</p>
-<p><a href="https://www.coursera.org/learn/managing-adhd-autism-learning-disabilities-and-concussion-in-school" target="_blank" rel="noopener noreferrer">Managing ADHD, Autism, Learning Disabilities, and Concussion in School (Coursera / University of Colorado System)</a> - An applied clinical and educational course detailing symptom presentation, medical considerations, and school-based accommodations for common childhood exceptionalities.</p>
-<h2 id="assessment-diagnostic-evaluation-and-iep-development">Assessment, Diagnostic Evaluation, and IEP Development</h2>
+<p><a href="https://books.google.com/books?isbn=9781305500976" target="_blank" rel="noopener noreferrer">Human Exceptionality: School, Community, and Family (Cengage / Michael L. Hardman, Clifford J. Drew, and M. Winston Egan)</a> - The core comprehensive text detailing cognitive, physical, and sensory characteristics across all IDEA categories throughout the lifespan.</p>
+<p><a href="https://www.coursera.org/learn/managing-adhd-autism-learning-disabilities-and-concussion-in-school" target="_blank" rel="noopener noreferrer">Managing ADHD, Autism, Learning Disabilities, and Concussion in School (Coursera / University of Colorado System)</a> - Complements the textbook with clinician-led video lectures exploring symptom presentations, medical considerations, and school accommodations for common high-incidence exceptionalities.</p>
+<h3 id="assessment-diagnostic-evaluation-and-iep-development">Assessment, Diagnostic Evaluation, and IEP Development</h3>
 <p>Covers the administration and interpretation of formal and informal psychoeducational assessments, progress monitoring, Multi-Tiered System of Supports (MTSS), and the development of legally compliant Individualized Education Programs (IEPs).</p>
-<p><a href="https://books.google.com/books?isbn=9780137545544" target="_blank" rel="noopener noreferrer">Assessment in Special Education: A Practical Approach (Pearson / Roger Pierangelo and George A. Giuliani)</a> - A step-by-step guide to standardized testing, informal assessments, eligibility determinations, and test result interpretations.</p>
-<p><a href="https://iris.peabody.vanderbilt.edu/module/iep01/" target="_blank" rel="noopener noreferrer">IEPs: Developing High-Quality Individualized Education Programs (IRIS Center / Vanderbilt University)</a> - An interactive module teaching the formulation of Present Levels of Academic Achievement and Functional Performance (PLAAFP) statements and measurable annual goals aligned with the Supreme Court's Endrew F. standard.</p>
-<h2 id="evidence-based-instructional-strategies-and-universal-design">Evidence-Based Instructional Strategies and Universal Design</h2>
+<p><a href="https://books.google.com/books?isbn=9780137545544" target="_blank" rel="noopener noreferrer">Assessment in Special Education: A Practical Approach (Pearson / Roger Pierangelo and George A. Giuliani)</a> - The foundational methods guide covering standardized testing, informal assessments, eligibility determinations, and test score interpretation.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/iep01/" target="_blank" rel="noopener noreferrer">IEPs: Developing High-Quality Individualized Education Programs (IRIS Center / Vanderbilt University)</a> - Complete directly after the assessment textbook to practice translating evaluation data into measurable annual goals and Present Levels (PLAAFP) statements aligned with legal standards.</p>
+<h3 id="evidence-based-instructional-strategies-and-universal-design">Evidence-Based Instructional Strategies and Universal Design</h3>
 <p>Focuses on designing accessible learning environments through explicit instruction, systematic scaffolding, task analysis, Differentiated Instruction, and Universal Design for Learning (UDL).</p>
-<p><a href="https://books.google.com/books?isbn=9780134792019" target="_blank" rel="noopener noreferrer">Strategies for Teaching Students with Learning and Behavior Problems (Pearson / Sharon R. Vaughn and Candace S. Bos)</a> - A standard methods text providing research-based instructional procedures in reading, writing, mathematics, and study skills.</p>
-<p><a href="https://iris.peabody.vanderbilt.edu/module/udl/" target="_blank" rel="noopener noreferrer">Universal Design for Learning: Designing Learning Experiences That Engage and Challenge All Students (IRIS Center / Vanderbilt University)</a> - A practical training module developed with CAST on applying the three core UDL principles to curricular goals, materials, and evaluations.</p>
-<p><a href="https://iris.peabody.vanderbilt.edu/module/di/" target="_blank" rel="noopener noreferrer">Differentiated Instruction: Maximizing the Learning of All Students (IRIS Center / Vanderbilt University)</a> - An interactive module exploring how to modify instructional content, process, and products according to student readiness, interest, and learning profile.</p>
-<p><a href="https://highleveragepractices.org/" target="_blank" rel="noopener noreferrer">High-Leverage Practices in Special Education (Council for Exceptional Children &amp; CEEDAR Center)</a> - A foundational open framework and video exemplar library demonstrating essential practices such as explicit instruction, flexible grouping, and active student engagement in real classrooms.</p>
-<h2 id="applied-behavior-analysis-and-positive-behavioral-supports">Applied Behavior Analysis and Positive Behavioral Supports</h2>
+<p><a href="https://books.google.com/books?isbn=9780134792019" target="_blank" rel="noopener noreferrer">Strategies for Teaching Students with Learning and Behavior Problems (Pearson / Sharon R. Vaughn and Candace S. Bos)</a> - The primary instructional methods textbook, providing concrete research-based strategies for explicit instruction in reading, writing, and mathematics.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/udl/" target="_blank" rel="noopener noreferrer">Universal Design for Learning: Designing Learning Experiences That Engage and Challenge All Students (IRIS Center / Vanderbilt University)</a> - Complements Vaughn &amp; Bos with an interactive walkthrough on applying CAST's proactive accessibility principles across instructional goals, materials, and assessments.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/di/" target="_blank" rel="noopener noreferrer">Differentiated Instruction: Maximizing the Learning of All Students (IRIS Center / Vanderbilt University)</a> - Study alongside the UDL module to learn how to dynamically adapt ongoing instructional content, process, and products to student readiness and interest.</p>
+<h3 id="applied-behavior-analysis-and-positive-behavioral-supports">Applied Behavior Analysis and Positive Behavioral Supports</h3>
 <p>Introduces the principles of operant conditioning, Functional Behavior Assessments (FBA), Behavior Intervention Plans (BIP), and multi-tiered Positive Behavioral Interventions and Supports (PBIS) in educational settings.</p>
-<p><a href="https://books.google.com/books?isbn=9780135607558" target="_blank" rel="noopener noreferrer">Applied Behavior Analysis for Teachers (Pearson / Paul A. Alberto, Anne C. Troutman, and Judah B. Axe)</a> - The definitive applied textbook teaching educators how to collect ABC data, establish reinforcement schedules, and shape classroom behavior constructively.</p>
-<p><a href="https://iris.peabody.vanderbilt.edu/module/cbm/" target="_blank" rel="noopener noreferrer">Classroom Behavior Management (Part 1): Key Concepts and Foundational Practices (IRIS Center / Vanderbilt University)</a> - A structured module detailing how to create positive classroom climates, establish clear procedures, and address cultural considerations in student behavior.</p>
-<p><a href="https://iris.peabody.vanderbilt.edu/module/fba/" target="_blank" rel="noopener noreferrer">Functional Behavioral Assessment: Identifying the Reasons for Student Behavior (IRIS Center / Vanderbilt University)</a> - A guided module explaining how to identify behavioral functions (attention, escape, tangible, sensory) and design targeted intervention strategies.</p>
-<h2 id="assistive-technology-and-accessible-learning-materials">Assistive Technology and Accessible Learning Materials</h2>
+<p><a href="https://books.google.com/books?isbn=9780135607558" target="_blank" rel="noopener noreferrer">Applied Behavior Analysis for Teachers (Pearson / Paul A. Alberto, Anne C. Troutman, and Judah B. Axe)</a> - The foundational textbook detailing operant conditioning, ABC data collection, reinforcement schedules, and behavioral shaping within school environments.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/cbm/" target="_blank" rel="noopener noreferrer">Classroom Behavior Management (Part 1): Key Concepts and Foundational Practices (IRIS Center / Vanderbilt University)</a> - Complements the theoretical textbook with an interactive tutorial on setting up universal, proactive Tier 1 classroom expectations and routines.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/fba/" target="_blank" rel="noopener noreferrer">Functional Behavioral Assessment: Identifying the Reasons for Student Behavior (IRIS Center / Vanderbilt University)</a> - Use after completing the foundational behavior modules to work through conducting Tier 3 Functional Behavior Assessments and drafting targeted intervention plans.</p>
+<h3 id="assistive-technology-and-accessible-learning-materials">Assistive Technology and Accessible Learning Materials</h3>
 <p>Explores low-tech accommodations through high-tech hardware, Augmentative and Alternative Communication (AAC) systems, and digital accessibility guidelines that promote student independence.</p>
-<p><a href="https://books.google.com/books?isbn=9780134276991" target="_blank" rel="noopener noreferrer">Assistive Technology in the Classroom: Enhancing the School Experiences of Students with Disabilities (Pearson / Amy G. Dell, Deborah A. Newton, and Jerry G. Petroff)</a> - A comprehensive look at matching assistive hardware, software, and adaptations to individual student needs across developmental and academic areas.</p>
-<p><a href="https://iris.peabody.vanderbilt.edu/module/at/" target="_blank" rel="noopener noreferrer">Assistive Technology: An Overview (IRIS Center / Vanderbilt University)</a> - An interactive module detailing the legal requirements for AT consideration during IEP meetings and the process of evaluating device and service effectiveness.</p>
-<p><a href="https://www.coursera.org/learn/accessibility" target="_blank" rel="noopener noreferrer">An Introduction to Accessibility and Inclusive Design (Coursera / University of Illinois Urbana-Champaign)</a> - A course teaching universal digital access, accessible document preparation, and Web Content Accessibility Guidelines (WCAG) applicable to educational media.</p>
-<h2 id="inclusive-practices-co-teaching-and-multidisciplinary-collaboration">Inclusive Practices, Co-Teaching, and Multidisciplinary Collaboration</h2>
+<p><a href="https://books.google.com/books?isbn=9780134276991" target="_blank" rel="noopener noreferrer">Assistive Technology in the Classroom: Enhancing the School Experiences of Students with Disabilities (Pearson / Amy G. Dell, Deborah A. Newton, and Jerry G. Petroff)</a> - The core survey text examining low- and high-tech devices, computer access adaptations, and Augmentative and Alternative Communication (AAC) solutions.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/at/" target="_blank" rel="noopener noreferrer">Assistive Technology: An Overview (IRIS Center / Vanderbilt University)</a> - Complements Dell et al. with a concise interactive module covering the legal requirements and decision-making framework for selecting AT devices and services during IEP meetings.</p>
+<p><a href="https://www.coursera.org/learn/accessibility" target="_blank" rel="noopener noreferrer">An Introduction to Accessibility and Inclusive Design (Coursera / University of Illinois Urbana-Champaign)</a> - Complements the classroom hardware literature by teaching practical digital document remediation, universal media design, and Web Content Accessibility Guidelines (WCAG).</p>
+<h3 id="inclusive-practices-co-teaching-and-multidisciplinary-collaboration">Inclusive Practices, Co-Teaching, and Multidisciplinary Collaboration</h3>
 <p>Examines co-teaching delivery models, paraprofessional supervision, related service coordination, and family-centered partnerships in general education and resource settings.</p>
-<p><a href="https://books.google.com/books?isbn=9781544365015" target="_blank" rel="noopener noreferrer">Teaching Students with Special Needs in Inclusive Classrooms (SAGE Publications / Diane P. Bryant, Brian R. Bryant, and Deborah D. Smith)</a> - A practical guide detailing co-teaching structures, collaborative problem-solving, and the ADAPT framework for inclusive environments.</p>
-<p><a href="https://iris.peabody.vanderbilt.edu/module/fam/" target="_blank" rel="noopener noreferrer">Family Engagement: Collaborating with Families of Students with Disabilities (IRIS Center / Vanderbilt University)</a> - An interactive module focused on building reciprocal, culturally responsive relationships with families during IEP planning and educational advocacy.</p>
+<p><a href="https://books.google.com/books?isbn=9781544365015" target="_blank" rel="noopener noreferrer">Teaching Students with Special Needs in Inclusive Classrooms (SAGE Publications / Diane P. Bryant, Brian R. Bryant, and Deborah D. Smith)</a> - The primary textbook on inclusive schooling, detailing collaborative co-teaching structures, paraprofessional coordination, and the ADAPT instructional framework.</p>
+<p><a href="https://iris.peabody.vanderbilt.edu/module/fam/" target="_blank" rel="noopener noreferrer">Family Engagement: Collaborating with Families of Students with Disabilities (IRIS Center / Vanderbilt University)</a> - Complements the school-based collaboration text with dedicated guidance on building culturally responsive, reciprocal partnerships with families during the special education process.</p>
     </article>
   </main>
 
